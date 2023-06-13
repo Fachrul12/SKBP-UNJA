@@ -49,7 +49,6 @@
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(115, 36);
@@ -60,12 +59,12 @@
             // 
             // btn_list
             // 
-            btn_list.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btn_list.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btn_list.BackColor = Color.DarkOrange;
             btn_list.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
             btn_list.Location = new Point(4, 206);
             btn_list.Name = "btn_list";
-            btn_list.Size = new Size(319, 94);
+            btn_list.Size = new Size(319, 97);
             btn_list.TabIndex = 3;
             btn_list.Text = "List Mahasiswa";
             btn_list.UseVisualStyleBackColor = false;
@@ -73,7 +72,7 @@
             // 
             // btn_validasi
             // 
-            btn_validasi.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btn_validasi.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btn_validasi.BackColor = Color.DarkOrange;
             btn_validasi.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
             btn_validasi.Location = new Point(4, 105);
@@ -97,7 +96,7 @@
             // 
             // btn_dashboard
             // 
-            btn_dashboard.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btn_dashboard.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btn_dashboard.BackColor = Color.DarkOrange;
             btn_dashboard.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
             btn_dashboard.Location = new Point(4, 4);
@@ -110,7 +109,7 @@
             // 
             // header
             // 
-            header.Anchor = AnchorStyles.None;
+            header.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             header.BorderStyle = BorderStyle.FixedSingle;
             header.Controls.Add(logo);
             header.Controls.Add(label1);
@@ -121,6 +120,7 @@
             // 
             // navbar
             // 
+            navbar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             navbar.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             navbar.ColumnCount = 1;
             navbar.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
@@ -133,27 +133,27 @@
             navbar.RowStyles.Add(new RowStyle(SizeType.Absolute, 100F));
             navbar.RowStyles.Add(new RowStyle(SizeType.Absolute, 100F));
             navbar.RowStyles.Add(new RowStyle(SizeType.Absolute, 100F));
-            navbar.Size = new Size(327, 303);
+            navbar.Size = new Size(327, 307);
             navbar.TabIndex = 6;
             // 
             // content
             // 
-            content.Anchor = AnchorStyles.None;
+            content.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             content.BorderStyle = BorderStyle.FixedSingle;
             content.Controls.Add(label2);
             content.Controls.Add(label_content);
-            content.Location = new Point(346, 135);
+            content.Location = new Point(349, 133);
             content.Name = "content";
-            content.Size = new Size(890, 475);
+            content.Size = new Size(884, 478);
             content.TabIndex = 11;
             // 
             // label2
             // 
-            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label2.Location = new Point(3, 49);
             label2.Name = "label2";
             label2.Padding = new Padding(5);
-            label2.Size = new Size(882, 422);
+            label2.Size = new Size(876, 405);
             label2.TabIndex = 1;
             label2.Text = resources.GetString("label2.Text");
             label2.TextAlign = ContentAlignment.TopCenter;
@@ -164,20 +164,19 @@
             label_content.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
             label_content.Location = new Point(-1, -1);
             label_content.Name = "label_content";
-            label_content.Size = new Size(886, 39);
+            label_content.Size = new Size(880, 39);
             label_content.TabIndex = 0;
             label_content.Text = "Dashboard";
             label_content.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // siderbar
             // 
-            siderbar.Anchor = AnchorStyles.None;
-            siderbar.BorderStyle = BorderStyle.FixedSingle;
             siderbar.Controls.Add(navbar);
             siderbar.Location = new Point(2, 135);
             siderbar.Name = "siderbar";
             siderbar.Size = new Size(335, 475);
             siderbar.TabIndex = 10;
+            siderbar.Paint += siderbar_Paint;
             // 
             // Beranda_Admin
             // 
@@ -189,6 +188,7 @@
             Controls.Add(siderbar);
             Name = "Beranda_Admin";
             Text = "Beranda_Admin";
+            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)logo).EndInit();
             header.ResumeLayout(false);
             header.PerformLayout();

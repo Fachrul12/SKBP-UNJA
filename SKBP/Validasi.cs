@@ -16,5 +16,21 @@ namespace SKBP
         {
             InitializeComponent();
         }
+
+        private void btn_list_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            list_mahasiswa list = new list_mahasiswa();
+            list.ShowDialog();
+        }
+
+        private void btn_dashboard_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            Beranda_Admin admin = new Beranda_Admin(); 
+            admin.ShowDialog();
+        }
     }
 }

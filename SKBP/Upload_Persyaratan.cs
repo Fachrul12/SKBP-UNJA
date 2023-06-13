@@ -20,7 +20,7 @@ namespace SKBP
         String conString = "server=localhost;database=db_skbp;uid=root;pwd=\"\"";
         private string ktmfilePath = "";
         private string sppfilePath = "";
-        
+
 
 
         public Upload_persyaratan()
@@ -30,7 +30,7 @@ namespace SKBP
 
         private void btn_kirim_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void Upload_Persyaratan_Load(object sender, EventArgs e)
@@ -148,15 +148,15 @@ namespace SKBP
 
         private void btn_kirim_Click_1(object sender, EventArgs e)
         {
-            
+
             string Nama = tb_nama.Text;
             string Email = tb_email.Text;
             string Nomor_WA = tb_noWa.Text;
             string Fakultas = tb_fakultas.Text;
             string Prodi = tb_prodi.Text;
-            
 
-                if (!string.IsNullOrEmpty(ktmfilePath) && !string.IsNullOrEmpty(sppfilePath))
+
+            if (!string.IsNullOrEmpty(ktmfilePath) && !string.IsNullOrEmpty(sppfilePath))
             {
                 string ktmfileContent = File.ReadAllText(ktmfilePath);
                 string sppfileContent = File.ReadAllText(sppfilePath);
@@ -167,7 +167,7 @@ namespace SKBP
 
                     string query = $"INSERT INTO skbp_form (Nama,Email,Nomor_WA,Fakultas,Prodi,KTM,SPP) VALUES (@Nama,@Email,@Nomor_WA,@Fakultas,@Prodi,@ktmfileContent,@sppfileContent)";
                     MySqlCommand command = new MySqlCommand(query, connection);
-                    
+
                     //VALUE
                     command.Parameters.AddWithValue("@Nama", Nama);
                     command.Parameters.AddWithValue("@Email", Email);

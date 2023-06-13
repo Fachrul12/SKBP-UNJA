@@ -55,13 +55,13 @@
             // 
             // header
             // 
-            header.Anchor = AnchorStyles.None;
+            header.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             header.BorderStyle = BorderStyle.FixedSingle;
             header.Controls.Add(logo);
             header.Controls.Add(label1);
             header.Location = new Point(1, 3);
             header.Name = "header";
-            header.Size = new Size(1231, 115);
+            header.Size = new Size(1182, 115);
             header.TabIndex = 12;
             // 
             // logo
@@ -143,13 +143,13 @@
             // 
             // content
             // 
-            content.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            content.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             content.BorderStyle = BorderStyle.FixedSingle;
             content.Controls.Add(dataGridView1);
             content.Controls.Add(label_content);
             content.Location = new Point(347, 138);
             content.Name = "content";
-            content.Size = new Size(890, 475);
+            content.Size = new Size(841, 475);
             content.TabIndex = 14;
             // 
             // dataGridView1
@@ -162,7 +162,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(853, 180);
+            dataGridView1.Size = new Size(804, 180);
             dataGridView1.TabIndex = 1;
             // 
             // nama
@@ -220,15 +220,13 @@
             label_content.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
             label_content.Location = new Point(-1, -1);
             label_content.Name = "label_content";
-            label_content.Size = new Size(886, 39);
+            label_content.Size = new Size(837, 39);
             label_content.TabIndex = 0;
             label_content.Text = "List Mahasiswa";
             label_content.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // siderbar
             // 
-            siderbar.Anchor = AnchorStyles.None;
-            siderbar.BorderStyle = BorderStyle.FixedSingle;
             siderbar.Controls.Add(navbar);
             siderbar.Location = new Point(3, 138);
             siderbar.Name = "siderbar";
@@ -239,7 +237,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1239, 616);
+            ClientSize = new Size(1190, 615);
             Controls.Add(header);
             Controls.Add(content);
             Controls.Add(siderbar);

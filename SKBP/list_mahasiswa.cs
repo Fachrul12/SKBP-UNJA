@@ -34,8 +34,8 @@ namespace SKBP
         {
             this.Hide();
 
-            Beranda_Admin admin = new Beranda_Admin(); 
-            admin.ShowDialog(); 
+            Beranda_Admin admin = new Beranda_Admin();
+            admin.ShowDialog();
         }
     }
 }

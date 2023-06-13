@@ -16,6 +16,9 @@
     <Compile Update="Kelola_user.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="list_mahasiswa.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -26,6 +29,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Upload_Persyaratan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Validasi.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

@@ -37,5 +37,10 @@ namespace SKBP
             list_mahasiswa list = new list_mahasiswa();
             list.ShowDialog();
         }
+
+        private void siderbar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -73,7 +73,7 @@
             header.Controls.Add(label1);
             header.Location = new Point(-2, -2);
             header.Name = "header";
-            header.Size = new Size(1237, 119);
+            header.Size = new Size(1268, 119);
             header.TabIndex = 10;
             // 
             // logo
@@ -186,7 +186,7 @@
             label_konten.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
             label_konten.Location = new Point(3, 3);
             label_konten.Name = "label_konten";
-            label_konten.Size = new Size(892, 39);
+            label_konten.Size = new Size(923, 39);
             label_konten.TabIndex = 0;
             label_konten.Text = "Upload Persyaratan SKBP";
             label_konten.TextAlign = ContentAlignment.MiddleCenter;
@@ -206,13 +206,13 @@
             konten.Controls.Add(label_konten);
             konten.Location = new Point(338, 121);
             konten.Name = "konten";
-            konten.Size = new Size(900, 487);
+            konten.Size = new Size(931, 485);
             konten.TabIndex = 12;
             // 
             // btn_kirim
             // 
             btn_kirim.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btn_kirim.Location = new Point(750, 427);
+            btn_kirim.Location = new Point(781, 425);
             btn_kirim.Name = "btn_kirim";
             btn_kirim.Size = new Size(127, 39);
             btn_kirim.TabIndex = 15;
@@ -279,7 +279,7 @@
             gb_data.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
             gb_data.Location = new Point(14, 45);
             gb_data.Name = "gb_data";
-            gb_data.Size = new Size(874, 275);
+            gb_data.Size = new Size(905, 275);
             gb_data.TabIndex = 8;
             gb_data.TabStop = false;
             // 
@@ -343,7 +343,7 @@
             tb_prodi.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tb_prodi.Location = new Point(152, 224);
             tb_prodi.Name = "tb_prodi";
-            tb_prodi.Size = new Size(420, 36);
+            tb_prodi.Size = new Size(451, 36);
             tb_prodi.TabIndex = 5;
             // 
             // tb_fakultas
@@ -351,7 +351,7 @@
             tb_fakultas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tb_fakultas.Location = new Point(152, 175);
             tb_fakultas.Name = "tb_fakultas";
-            tb_fakultas.Size = new Size(420, 36);
+            tb_fakultas.Size = new Size(451, 36);
             tb_fakultas.TabIndex = 4;
             // 
             // tb_noWa
@@ -359,7 +359,7 @@
             tb_noWa.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tb_noWa.Location = new Point(152, 127);
             tb_noWa.Name = "tb_noWa";
-            tb_noWa.Size = new Size(420, 36);
+            tb_noWa.Size = new Size(451, 36);
             tb_noWa.TabIndex = 3;
             // 
             // tb_email
@@ -367,7 +367,7 @@
             tb_email.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tb_email.Location = new Point(152, 74);
             tb_email.Name = "tb_email";
-            tb_email.Size = new Size(420, 36);
+            tb_email.Size = new Size(451, 36);
             tb_email.TabIndex = 2;
             // 
             // tb_nama
@@ -375,7 +375,7 @@
             tb_nama.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tb_nama.Location = new Point(152, 24);
             tb_nama.Name = "tb_nama";
-            tb_nama.Size = new Size(420, 36);
+            tb_nama.Size = new Size(451, 36);
             tb_nama.TabIndex = 0;
             tb_nama.TextChanged += tb_nama_TextChanged;
             // 
@@ -392,7 +392,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1239, 616);
+            ClientSize = new Size(1270, 614);
             Controls.Add(sidebar);
             Controls.Add(konten);
             Controls.Add(header);
