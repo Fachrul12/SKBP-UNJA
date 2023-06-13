@@ -16,5 +16,26 @@ namespace SKBP
         {
             InitializeComponent();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_validasi_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            Validasi validasi = new Validasi();
+            validasi.ShowDialog();
+        }
+
+        private void btn_dashboard_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            Beranda_Admin admin = new Beranda_Admin(); 
+            admin.ShowDialog(); 
+        }
     }
 }
