@@ -57,10 +57,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Surat Keterangan Bebas Pustaka adalah dokumen yang dikeluarkan oleh perpustakaan untuk menyatakan bahwa 
-seorang individu tidak memiliki tanggungan atau keterlambatan dalam pengembalian buku atau sumber informasi 
-lainnya yang dipinjam dari perpustakaan tersebut. Surat ini menunjukkan bahwa individu tersebut tidak memiliki 
-tunggakan atau denda perpustakaan dan bebas dari kewajiban untuk mengembalikan bahan pustaka yang belum dikembalikan.</value>
-  </data>
 </root>
