@@ -168,6 +168,7 @@ namespace SKBP
                     string query = $"INSERT INTO skbp_form (Nama,Email,Nomor_WA,Fakultas,Prodi,KTM,SPP) VALUES (@Nama,@Email,@Nomor_WA,@Fakultas,@Prodi,@ktmfileContent,@sppfileContent)";
                     MySqlCommand command = new MySqlCommand(query, connection);
                     
+                    //VALUE
                     command.Parameters.AddWithValue("@Nama", Nama);
                     command.Parameters.AddWithValue("@Email", Email);
                     command.Parameters.AddWithValue("@Nomor_WA", Nomor_WA);

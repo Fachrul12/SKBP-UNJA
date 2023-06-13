@@ -39,4 +39,4 @@ D:\Visual Studio Net\SKBP\SKBP\obj\Debug\net6.0-windows\SKBP.Beranda_Admin.resou
 D:\Visual Studio Net\SKBP\SKBP\obj\Debug\net6.0-windows\SKBP.Beranda_superadmin.resources
 D:\Visual Studio Net\SKBP\SKBP\obj\Debug\net6.0-windows\SKBP.Info_Petugas.resources
 D:\Visual Studio Net\SKBP\SKBP\obj\Debug\net6.0-windows\SKBP.Kelola_user.resources
-D:\Visual Studio Net\SKBP\SKBP\obj\Debug\net6.0-windows\SKBP.GlobalVariables.resources
+D:\Visual Studio Net\SKBP\SKBP\obj\Debug\net6.0-windows\SKBP.Login.resources
