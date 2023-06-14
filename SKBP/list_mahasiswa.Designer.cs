@@ -61,7 +61,7 @@
             header.Controls.Add(label1);
             header.Location = new Point(1, 3);
             header.Name = "header";
-            header.Size = new Size(1182, 115);
+            header.Size = new Size(1207, 115);
             header.TabIndex = 12;
             // 
             // logo
@@ -149,7 +149,7 @@
             content.Controls.Add(label_content);
             content.Location = new Point(347, 138);
             content.Name = "content";
-            content.Size = new Size(841, 475);
+            content.Size = new Size(866, 477);
             content.TabIndex = 14;
             // 
             // dataGridView1
@@ -162,7 +162,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(804, 180);
+            dataGridView1.Size = new Size(829, 180);
             dataGridView1.TabIndex = 1;
             // 
             // nama
@@ -220,7 +220,7 @@
             label_content.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
             label_content.Location = new Point(-1, -1);
             label_content.Name = "label_content";
-            label_content.Size = new Size(837, 39);
+            label_content.Size = new Size(862, 39);
             label_content.TabIndex = 0;
             label_content.Text = "List Mahasiswa";
             label_content.TextAlign = ContentAlignment.MiddleCenter;
@@ -237,7 +237,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1190, 615);
+            ClientSize = new Size(1215, 617);
             Controls.Add(header);
             Controls.Add(content);
             Controls.Add(siderbar);
