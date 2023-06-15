@@ -37,5 +37,13 @@ namespace SKBP
             Beranda_Admin admin = new Beranda_Admin();
             admin.ShowDialog();
         }
+
+        private void btn_logout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            Login login = new Login();
+            login.ShowDialog();
+        }
     }
 }

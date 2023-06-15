@@ -77,7 +77,7 @@
             label1.Anchor = AnchorStyles.Top;
             label1.BackColor = Color.DarkOrange;
             label1.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(489, 58);
+            label1.Location = new Point(489, 156);
             label1.Name = "label1";
             label1.Size = new Size(263, 44);
             label1.TabIndex = 3;
@@ -94,7 +94,7 @@
             panel1.Controls.Add(tb_username);
             panel1.Controls.Add(btn_login);
             panel1.Controls.Add(tb_password);
-            panel1.Location = new Point(442, 105);
+            panel1.Location = new Point(446, 222);
             panel1.Name = "panel1";
             panel1.Size = new Size(359, 336);
             panel1.TabIndex = 4;
@@ -102,10 +102,10 @@
             // label2
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(141, 21);
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(135, 21);
             label2.Name = "label2";
-            label2.Size = new Size(71, 30);
+            label2.Size = new Size(77, 30);
             label2.TabIndex = 2;
             label2.Text = "LOGIN";
             label2.TextAlign = ContentAlignment.TopCenter;

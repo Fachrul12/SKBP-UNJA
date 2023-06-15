@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Beranda_superadmin));
             header = new Panel();
+            btn_logout = new Button();
             logo = new PictureBox();
             label1 = new Label();
             navbar = new TableLayoutPanel();
@@ -40,6 +41,7 @@
             content = new Panel();
             label2 = new Label();
             label_content = new Label();
+            lbl_username = new Label();
             header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             navbar.SuspendLayout();
@@ -50,7 +52,10 @@
             // header
             // 
             header.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            header.BackColor = SystemColors.AppWorkspace;
             header.BorderStyle = BorderStyle.FixedSingle;
+            header.Controls.Add(lbl_username);
+            header.Controls.Add(btn_logout);
             header.Controls.Add(logo);
             header.Controls.Add(label1);
             header.Location = new Point(0, 0);
@@ -58,6 +63,20 @@
             header.Size = new Size(1239, 115);
             header.TabIndex = 6;
             header.Paint += header_Paint;
+            // 
+            // btn_logout
+            // 
+            btn_logout.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btn_logout.BackColor = Color.Silver;
+            btn_logout.Cursor = Cursors.Hand;
+            btn_logout.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_logout.Location = new Point(1108, 44);
+            btn_logout.Name = "btn_logout";
+            btn_logout.Size = new Size(94, 29);
+            btn_logout.TabIndex = 20;
+            btn_logout.Text = "Log Out";
+            btn_logout.UseVisualStyleBackColor = false;
+            btn_logout.Click += btn_logout_Click;
             // 
             // logo
             // 
@@ -144,6 +163,7 @@
             // siderbar
             // 
             siderbar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            siderbar.BackColor = SystemColors.AppWorkspace;
             siderbar.BorderStyle = BorderStyle.FixedSingle;
             siderbar.Controls.Add(navbar);
             siderbar.Location = new Point(0, 129);
@@ -167,6 +187,7 @@
             // label2
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label2.BackColor = SystemColors.AppWorkspace;
             label2.Location = new Point(3, 49);
             label2.Name = "label2";
             label2.Padding = new Padding(5);
@@ -179,14 +200,26 @@
             // label_content
             // 
             label_content.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label_content.BackColor = Color.DarkOrange;
             label_content.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
             label_content.Location = new Point(3, 3);
             label_content.Name = "label_content";
-            label_content.Size = new Size(878, 39);
+            label_content.Size = new Size(878, 46);
             label_content.TabIndex = 0;
             label_content.Text = "Dashboard";
             label_content.TextAlign = ContentAlignment.MiddleCenter;
             label_content.Click += label_content_Click;
+            // 
+            // lbl_username
+            // 
+            lbl_username.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lbl_username.AutoSize = true;
+            lbl_username.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_username.Location = new Point(974, 44);
+            lbl_username.Name = "lbl_username";
+            lbl_username.Size = new Size(128, 28);
+            lbl_username.TabIndex = 19;
+            lbl_username.Text = "SuperAdmin";
             // 
             // Beranda_superadmin
             // 
@@ -222,5 +255,7 @@
         private Panel content;
         private Label label2;
         private Label label_content;
+        private Button btn_logout;
+        private Label lbl_username;
     }
 }

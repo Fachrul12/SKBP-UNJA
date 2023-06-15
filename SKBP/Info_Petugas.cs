@@ -82,5 +82,13 @@ namespace SKBP
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
         }
+
+        private void btn_logout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            Login login = new Login();
+            login.ShowDialog();
+        }
     }
 }

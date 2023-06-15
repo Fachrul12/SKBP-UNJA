@@ -37,38 +37,47 @@
             logo = new PictureBox();
             label1 = new Label();
             header = new Panel();
+            btn_logout = new Button();
             content = new Panel();
-            gb_data = new GroupBox();
-            btn_tolak = new Button();
-            btn_submit = new Button();
-            label_prodi = new Label();
-            skbp = new Button();
-            label_fakultas = new Label();
-            btn_ktm = new Button();
-            btn_spp = new Button();
-            label_nomorWA = new Label();
-            label_email = new Label();
+            splitContainer1 = new SplitContainer();
             label_nama = new Label();
-            tb_prodi = new TextBox();
-            tb_fakultas = new TextBox();
-            tb_noWa = new TextBox();
-            tb_email = new TextBox();
+            label_email = new Label();
             tb_nama = new TextBox();
+            tb_email = new TextBox();
+            label_nomorWA = new Label();
+            label_fakultas = new Label();
+            tb_noWa = new TextBox();
+            label_prodi = new Label();
+            tb_fakultas = new TextBox();
+            btn_spp = new Button();
+            btn_ktm = new Button();
+            tb_prodi = new TextBox();
+            label2 = new Label();
+            textBox1 = new TextBox();
+            btn_submit = new Button();
+            skbp = new Button();
+            btn_tolak = new Button();
             openFileDialog1 = new OpenFileDialog();
+            lbl_username = new Label();
             siderbar.SuspendLayout();
             navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             header.SuspendLayout();
             content.SuspendLayout();
-            gb_data.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
+            splitContainer1.Panel1.SuspendLayout();
+            splitContainer1.Panel2.SuspendLayout();
+            splitContainer1.SuspendLayout();
             SuspendLayout();
             // 
             // siderbar
             // 
+            siderbar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            siderbar.BackColor = SystemColors.AppWorkspace;
             siderbar.Controls.Add(navbar);
-            siderbar.Location = new Point(3, 138);
+            siderbar.Location = new Point(3, 129);
             siderbar.Name = "siderbar";
-            siderbar.Size = new Size(335, 475);
+            siderbar.Size = new Size(335, 491);
             siderbar.TabIndex = 16;
             // 
             // navbar
@@ -129,10 +138,11 @@
             // label_content
             // 
             label_content.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label_content.BackColor = Color.DarkOrange;
             label_content.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            label_content.Location = new Point(3, -1);
+            label_content.Location = new Point(0, 0);
             label_content.Name = "label_content";
-            label_content.Size = new Size(852, 39);
+            label_content.Size = new Size(855, 39);
             label_content.TabIndex = 0;
             label_content.Text = "Validasi";
             label_content.TextAlign = ContentAlignment.MiddleCenter;
@@ -161,7 +171,10 @@
             // header
             // 
             header.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            header.BackColor = SystemColors.AppWorkspace;
             header.BorderStyle = BorderStyle.FixedSingle;
+            header.Controls.Add(lbl_username);
+            header.Controls.Add(btn_logout);
             header.Controls.Add(logo);
             header.Controls.Add(label1);
             header.Location = new Point(1, 3);
@@ -169,142 +182,66 @@
             header.Size = new Size(1201, 115);
             header.TabIndex = 15;
             // 
+            // btn_logout
+            // 
+            btn_logout.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btn_logout.BackColor = Color.Silver;
+            btn_logout.Cursor = Cursors.Hand;
+            btn_logout.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_logout.Location = new Point(1073, 44);
+            btn_logout.Name = "btn_logout";
+            btn_logout.Size = new Size(94, 29);
+            btn_logout.TabIndex = 18;
+            btn_logout.Text = "Log Out";
+            btn_logout.UseVisualStyleBackColor = false;
+            btn_logout.Click += btn_logout_Click;
+            // 
             // content
             // 
             content.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            content.BackColor = SystemColors.AppWorkspace;
             content.BorderStyle = BorderStyle.FixedSingle;
-            content.Controls.Add(gb_data);
+            content.Controls.Add(splitContainer1);
             content.Controls.Add(label_content);
-            content.Location = new Point(347, 138);
+            content.Location = new Point(347, 129);
             content.Name = "content";
-            content.Size = new Size(860, 508);
+            content.Size = new Size(860, 491);
             content.TabIndex = 17;
+            content.Paint += content_Paint;
             // 
-            // gb_data
+            // splitContainer1
             // 
-            gb_data.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            gb_data.BackColor = Color.DarkOrange;
-            gb_data.Controls.Add(btn_tolak);
-            gb_data.Controls.Add(btn_submit);
-            gb_data.Controls.Add(label_prodi);
-            gb_data.Controls.Add(skbp);
-            gb_data.Controls.Add(label_fakultas);
-            gb_data.Controls.Add(btn_ktm);
-            gb_data.Controls.Add(btn_spp);
-            gb_data.Controls.Add(label_nomorWA);
-            gb_data.Controls.Add(label_email);
-            gb_data.Controls.Add(label_nama);
-            gb_data.Controls.Add(tb_prodi);
-            gb_data.Controls.Add(tb_fakultas);
-            gb_data.Controls.Add(tb_noWa);
-            gb_data.Controls.Add(tb_email);
-            gb_data.Controls.Add(tb_nama);
-            gb_data.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            gb_data.Location = new Point(19, 41);
-            gb_data.Name = "gb_data";
-            gb_data.Size = new Size(772, 420);
-            gb_data.TabIndex = 14;
-            gb_data.TabStop = false;
+            splitContainer1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            splitContainer1.Location = new Point(17, 58);
+            splitContainer1.Name = "splitContainer1";
             // 
-            // btn_tolak
+            // splitContainer1.Panel1
             // 
-            btn_tolak.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_tolak.Location = new Point(207, 360);
-            btn_tolak.Name = "btn_tolak";
-            btn_tolak.Size = new Size(150, 41);
-            btn_tolak.TabIndex = 21;
-            btn_tolak.Text = "Tolak";
-            btn_tolak.UseVisualStyleBackColor = true;
+            splitContainer1.Panel1.BackColor = Color.DarkOrange;
+            splitContainer1.Panel1.Controls.Add(label_nama);
+            splitContainer1.Panel1.Controls.Add(label_email);
+            splitContainer1.Panel1.Controls.Add(tb_nama);
+            splitContainer1.Panel1.Controls.Add(tb_email);
+            splitContainer1.Panel1.Controls.Add(label_nomorWA);
+            splitContainer1.Panel1.Controls.Add(label_fakultas);
+            splitContainer1.Panel1.Controls.Add(tb_noWa);
+            splitContainer1.Panel1.Controls.Add(label_prodi);
+            splitContainer1.Panel1.Controls.Add(tb_fakultas);
+            splitContainer1.Panel1.Controls.Add(btn_spp);
+            splitContainer1.Panel1.Controls.Add(btn_ktm);
+            splitContainer1.Panel1.Controls.Add(tb_prodi);
             // 
-            // btn_submit
+            // splitContainer1.Panel2
             // 
-            btn_submit.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_submit.Location = new Point(12, 361);
-            btn_submit.Name = "btn_submit";
-            btn_submit.Size = new Size(150, 41);
-            btn_submit.TabIndex = 19;
-            btn_submit.Text = "Validasi";
-            btn_submit.UseVisualStyleBackColor = true;
-            // 
-            // label_prodi
-            // 
-            label_prodi.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label_prodi.AutoSize = true;
-            label_prodi.BackColor = Color.SeaShell;
-            label_prodi.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            label_prodi.Location = new Point(12, 224);
-            label_prodi.Name = "label_prodi";
-            label_prodi.Size = new Size(75, 30);
-            label_prodi.TabIndex = 10;
-            label_prodi.Text = "Prodi :";
-            // 
-            // skbp
-            // 
-            skbp.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            skbp.Location = new Point(12, 314);
-            skbp.Name = "skbp";
-            skbp.Size = new Size(150, 41);
-            skbp.TabIndex = 20;
-            skbp.Text = "skbp";
-            skbp.UseVisualStyleBackColor = true;
-            // 
-            // label_fakultas
-            // 
-            label_fakultas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label_fakultas.AutoSize = true;
-            label_fakultas.BackColor = Color.SeaShell;
-            label_fakultas.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            label_fakultas.Location = new Point(12, 175);
-            label_fakultas.Name = "label_fakultas";
-            label_fakultas.Size = new Size(100, 30);
-            label_fakultas.TabIndex = 9;
-            label_fakultas.Text = "Fakultas :";
-            // 
-            // btn_ktm
-            // 
-            btn_ktm.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btn_ktm.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_ktm.Location = new Point(616, 24);
-            btn_ktm.Name = "btn_ktm";
-            btn_ktm.Size = new Size(150, 41);
-            btn_ktm.TabIndex = 15;
-            btn_ktm.Text = "Unduh KTM";
-            btn_ktm.UseVisualStyleBackColor = true;
-            // 
-            // btn_spp
-            // 
-            btn_spp.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btn_spp.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_spp.Location = new Point(616, 87);
-            btn_spp.Name = "btn_spp";
-            btn_spp.Size = new Size(150, 39);
-            btn_spp.TabIndex = 16;
-            btn_spp.Text = "Unduh SPP";
-            btn_spp.UseVisualStyleBackColor = true;
-            // 
-            // label_nomorWA
-            // 
-            label_nomorWA.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label_nomorWA.AutoSize = true;
-            label_nomorWA.BackColor = Color.SeaShell;
-            label_nomorWA.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            label_nomorWA.Location = new Point(12, 127);
-            label_nomorWA.Name = "label_nomorWA";
-            label_nomorWA.Size = new Size(133, 30);
-            label_nomorWA.TabIndex = 8;
-            label_nomorWA.Text = "Nomor WA :";
-            // 
-            // label_email
-            // 
-            label_email.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label_email.AutoSize = true;
-            label_email.BackColor = Color.SeaShell;
-            label_email.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            label_email.Location = new Point(12, 74);
-            label_email.Name = "label_email";
-            label_email.Size = new Size(75, 30);
-            label_email.TabIndex = 7;
-            label_email.Text = "Email :";
+            splitContainer1.Panel2.BackColor = Color.DarkOrange;
+            splitContainer1.Panel2.Controls.Add(label2);
+            splitContainer1.Panel2.Controls.Add(textBox1);
+            splitContainer1.Panel2.Controls.Add(btn_submit);
+            splitContainer1.Panel2.Controls.Add(skbp);
+            splitContainer1.Panel2.Controls.Add(btn_tolak);
+            splitContainer1.Size = new Size(832, 417);
+            splitContainer1.SplitterDistance = 416;
+            splitContainer1.TabIndex = 15;
             // 
             // label_nama
             // 
@@ -312,55 +249,190 @@
             label_nama.AutoSize = true;
             label_nama.BackColor = Color.SeaShell;
             label_nama.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            label_nama.Location = new Point(12, 24);
+            label_nama.Location = new Point(12, 26);
             label_nama.Name = "label_nama";
             label_nama.Size = new Size(81, 30);
             label_nama.TabIndex = 6;
             label_nama.Text = "Nama :";
             // 
-            // tb_prodi
+            // label_email
             // 
-            tb_prodi.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tb_prodi.Location = new Point(152, 224);
-            tb_prodi.Name = "tb_prodi";
-            tb_prodi.Size = new Size(335, 36);
-            tb_prodi.TabIndex = 5;
-            // 
-            // tb_fakultas
-            // 
-            tb_fakultas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tb_fakultas.Location = new Point(152, 175);
-            tb_fakultas.Name = "tb_fakultas";
-            tb_fakultas.Size = new Size(335, 36);
-            tb_fakultas.TabIndex = 4;
-            // 
-            // tb_noWa
-            // 
-            tb_noWa.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tb_noWa.Location = new Point(152, 127);
-            tb_noWa.Name = "tb_noWa";
-            tb_noWa.Size = new Size(335, 36);
-            tb_noWa.TabIndex = 3;
-            // 
-            // tb_email
-            // 
-            tb_email.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tb_email.Location = new Point(152, 74);
-            tb_email.Name = "tb_email";
-            tb_email.Size = new Size(335, 36);
-            tb_email.TabIndex = 2;
+            label_email.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label_email.AutoSize = true;
+            label_email.BackColor = Color.SeaShell;
+            label_email.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            label_email.Location = new Point(12, 83);
+            label_email.Name = "label_email";
+            label_email.Size = new Size(75, 30);
+            label_email.TabIndex = 7;
+            label_email.Text = "Email :";
             // 
             // tb_nama
             // 
             tb_nama.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tb_nama.Location = new Point(152, 24);
+            tb_nama.Location = new Point(160, 31);
             tb_nama.Name = "tb_nama";
-            tb_nama.Size = new Size(335, 36);
+            tb_nama.Size = new Size(231, 27);
             tb_nama.TabIndex = 0;
+            // 
+            // tb_email
+            // 
+            tb_email.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tb_email.Location = new Point(160, 86);
+            tb_email.Name = "tb_email";
+            tb_email.Size = new Size(231, 27);
+            tb_email.TabIndex = 2;
+            // 
+            // label_nomorWA
+            // 
+            label_nomorWA.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label_nomorWA.AutoSize = true;
+            label_nomorWA.BackColor = Color.SeaShell;
+            label_nomorWA.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            label_nomorWA.Location = new Point(12, 136);
+            label_nomorWA.Name = "label_nomorWA";
+            label_nomorWA.Size = new Size(133, 30);
+            label_nomorWA.TabIndex = 8;
+            label_nomorWA.Text = "Nomor WA :";
+            // 
+            // label_fakultas
+            // 
+            label_fakultas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label_fakultas.AutoSize = true;
+            label_fakultas.BackColor = Color.SeaShell;
+            label_fakultas.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            label_fakultas.Location = new Point(12, 199);
+            label_fakultas.Name = "label_fakultas";
+            label_fakultas.Size = new Size(100, 30);
+            label_fakultas.TabIndex = 9;
+            label_fakultas.Text = "Fakultas :";
+            // 
+            // tb_noWa
+            // 
+            tb_noWa.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tb_noWa.Location = new Point(160, 141);
+            tb_noWa.Name = "tb_noWa";
+            tb_noWa.Size = new Size(231, 27);
+            tb_noWa.TabIndex = 3;
+            // 
+            // label_prodi
+            // 
+            label_prodi.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label_prodi.AutoSize = true;
+            label_prodi.BackColor = Color.SeaShell;
+            label_prodi.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            label_prodi.Location = new Point(18, 262);
+            label_prodi.Name = "label_prodi";
+            label_prodi.Size = new Size(75, 30);
+            label_prodi.TabIndex = 10;
+            label_prodi.Text = "Prodi :";
+            // 
+            // tb_fakultas
+            // 
+            tb_fakultas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tb_fakultas.Location = new Point(160, 202);
+            tb_fakultas.Name = "tb_fakultas";
+            tb_fakultas.Size = new Size(231, 27);
+            tb_fakultas.TabIndex = 4;
+            // 
+            // btn_spp
+            // 
+            btn_spp.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_spp.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_spp.Location = new Point(241, 362);
+            btn_spp.Name = "btn_spp";
+            btn_spp.Size = new Size(150, 39);
+            btn_spp.TabIndex = 16;
+            btn_spp.Text = "Unduh SPP";
+            btn_spp.UseVisualStyleBackColor = true;
+            // 
+            // btn_ktm
+            // 
+            btn_ktm.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_ktm.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_ktm.Location = new Point(33, 360);
+            btn_ktm.Name = "btn_ktm";
+            btn_ktm.Size = new Size(150, 41);
+            btn_ktm.TabIndex = 15;
+            btn_ktm.Text = "Unduh KTM";
+            btn_ktm.UseVisualStyleBackColor = true;
+            // 
+            // tb_prodi
+            // 
+            tb_prodi.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tb_prodi.Location = new Point(160, 267);
+            tb_prodi.Name = "tb_prodi";
+            tb_prodi.Size = new Size(231, 27);
+            tb_prodi.TabIndex = 5;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.BackColor = Color.SeaShell;
+            label2.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(19, 31);
+            label2.Name = "label2";
+            label2.Size = new Size(68, 30);
+            label2.TabIndex = 17;
+            label2.Text = "Pesan";
+            // 
+            // textBox1
+            // 
+            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            textBox1.Location = new Point(19, 71);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(376, 192);
+            textBox1.TabIndex = 22;
+            // 
+            // btn_submit
+            // 
+            btn_submit.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_submit.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_submit.Location = new Point(234, 360);
+            btn_submit.Name = "btn_submit";
+            btn_submit.Size = new Size(150, 41);
+            btn_submit.TabIndex = 19;
+            btn_submit.Text = "Validasi";
+            btn_submit.UseVisualStyleBackColor = true;
+            // 
+            // skbp
+            // 
+            skbp.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            skbp.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            skbp.Location = new Point(234, 295);
+            skbp.Name = "skbp";
+            skbp.Size = new Size(150, 41);
+            skbp.TabIndex = 20;
+            skbp.Text = "skbp";
+            skbp.UseVisualStyleBackColor = true;
+            // 
+            // btn_tolak
+            // 
+            btn_tolak.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_tolak.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_tolak.Location = new Point(32, 360);
+            btn_tolak.Name = "btn_tolak";
+            btn_tolak.Size = new Size(150, 41);
+            btn_tolak.TabIndex = 21;
+            btn_tolak.Text = "Tolak";
+            btn_tolak.UseVisualStyleBackColor = true;
             // 
             // openFileDialog1
             // 
             openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // lbl_username
+            // 
+            lbl_username.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lbl_username.AutoSize = true;
+            lbl_username.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_username.Location = new Point(993, 44);
+            lbl_username.Name = "lbl_username";
+            lbl_username.Size = new Size(74, 28);
+            lbl_username.TabIndex = 18;
+            lbl_username.Text = "Admin";
             // 
             // Validasi
             // 
@@ -380,8 +452,12 @@
             header.ResumeLayout(false);
             header.PerformLayout();
             content.ResumeLayout(false);
-            gb_data.ResumeLayout(false);
-            gb_data.PerformLayout();
+            splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel1.PerformLayout();
+            splitContainer1.Panel2.ResumeLayout(false);
+            splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
+            splitContainer1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -397,7 +473,6 @@
         private Label label1;
         private Panel header;
         private Panel content;
-        private GroupBox gb_data;
         private Label label_prodi;
         private Label label_fakultas;
         private Label label_nomorWA;
@@ -414,5 +489,10 @@
         private Button btn_spp;
         private OpenFileDialog openFileDialog1;
         private Button btn_tolak;
+        private Button btn_logout;
+        private SplitContainer splitContainer1;
+        private Label label2;
+        private TextBox textBox1;
+        private Label lbl_username;
     }
 }

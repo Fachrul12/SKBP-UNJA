@@ -78,5 +78,13 @@ namespace SKBP
         private void label_content_Click(object sender, EventArgs e)
         {
         }
+
+        private void btn_logout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            Login login = new Login();
+            login.ShowDialog();
+        }
     }
 }

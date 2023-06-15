@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             header = new Panel();
+            btn_logout = new Button();
             logo = new PictureBox();
             label1 = new Label();
             btn_list = new Button();
@@ -45,6 +46,7 @@
             pilih = new DataGridViewButtonColumn();
             label_content = new Label();
             siderbar = new Panel();
+            lbl_username = new Label();
             header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             navbar.SuspendLayout();
@@ -56,13 +58,30 @@
             // header
             // 
             header.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            header.BackColor = SystemColors.AppWorkspace;
             header.BorderStyle = BorderStyle.FixedSingle;
+            header.Controls.Add(lbl_username);
+            header.Controls.Add(btn_logout);
             header.Controls.Add(logo);
             header.Controls.Add(label1);
             header.Location = new Point(1, 3);
             header.Name = "header";
             header.Size = new Size(1207, 115);
             header.TabIndex = 12;
+            // 
+            // btn_logout
+            // 
+            btn_logout.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btn_logout.BackColor = Color.Silver;
+            btn_logout.Cursor = Cursors.Hand;
+            btn_logout.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_logout.Location = new Point(1075, 44);
+            btn_logout.Name = "btn_logout";
+            btn_logout.Size = new Size(94, 29);
+            btn_logout.TabIndex = 19;
+            btn_logout.Text = "Log Out";
+            btn_logout.UseVisualStyleBackColor = false;
+            btn_logout.Click += btn_logout_Click;
             // 
             // logo
             // 
@@ -144,25 +163,26 @@
             // content
             // 
             content.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            content.BackColor = SystemColors.AppWorkspace;
             content.BorderStyle = BorderStyle.FixedSingle;
             content.Controls.Add(dataGridView1);
             content.Controls.Add(label_content);
-            content.Location = new Point(347, 138);
+            content.Location = new Point(343, 129);
             content.Name = "content";
-            content.Size = new Size(866, 477);
+            content.Size = new Size(865, 485);
             content.TabIndex = 14;
             // 
             // dataGridView1
             // 
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.BackgroundColor = Color.DarkOrange;
+            dataGridView1.BackgroundColor = SystemColors.ButtonFace;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { nama, email, nim, fakultas, upload, pilih });
             dataGridView1.Location = new Point(18, 83);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(829, 180);
+            dataGridView1.Size = new Size(828, 180);
             dataGridView1.TabIndex = 1;
             // 
             // nama
@@ -217,21 +237,35 @@
             // label_content
             // 
             label_content.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label_content.BackColor = Color.DarkOrange;
             label_content.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
             label_content.Location = new Point(-1, -1);
             label_content.Name = "label_content";
-            label_content.Size = new Size(862, 39);
+            label_content.Size = new Size(861, 39);
             label_content.TabIndex = 0;
             label_content.Text = "List Mahasiswa";
             label_content.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // siderbar
             // 
+            siderbar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            siderbar.BackColor = SystemColors.AppWorkspace;
             siderbar.Controls.Add(navbar);
-            siderbar.Location = new Point(3, 138);
+            siderbar.Location = new Point(0, 129);
             siderbar.Name = "siderbar";
-            siderbar.Size = new Size(335, 475);
+            siderbar.Size = new Size(335, 485);
             siderbar.TabIndex = 13;
+            // 
+            // lbl_username
+            // 
+            lbl_username.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lbl_username.AutoSize = true;
+            lbl_username.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_username.Location = new Point(995, 45);
+            lbl_username.Name = "lbl_username";
+            lbl_username.Size = new Size(74, 28);
+            lbl_username.TabIndex = 19;
+            lbl_username.Text = "Admin";
             // 
             // list_mahasiswa
             // 
@@ -272,5 +306,7 @@
         private DataGridViewTextBoxColumn fakultas;
         private DataGridViewTextBoxColumn upload;
         private DataGridViewButtonColumn pilih;
+        private Button btn_logout;
+        private Label lbl_username;
     }
 }

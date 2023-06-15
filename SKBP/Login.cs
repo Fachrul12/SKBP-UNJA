@@ -17,11 +17,11 @@ using MySqlX.XDevAPI;
 
 namespace SKBP
 {
-    
+
     public partial class Login : Form
     {
         String conString = "server=localhost;database=db_skbp;uid=root;pwd=\"\"";
-        
+
 
         public Login()
         {
@@ -60,7 +60,7 @@ namespace SKBP
 
                         if (!string.IsNullOrEmpty(role))
                         {
-                            
+
 
                             if (role == "superadmin")
                             {
@@ -79,12 +79,12 @@ namespace SKBP
                             }
                             else if (role == "Mahasiswa")
                             {
-                                
+
                                 // Arahkan ke halaman mahasiswa
 
                                 Beranda mahasiswa = new Beranda();
                                 mahasiswa.Show();
-                                
+
 
                                 this.Hide();
                             }

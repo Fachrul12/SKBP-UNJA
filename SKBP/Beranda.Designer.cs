@@ -36,11 +36,13 @@
             logo = new PictureBox();
             btn_dashboard = new Button();
             header = new Panel();
+            btn_logout = new Button();
             navbar = new TableLayoutPanel();
             siderbar = new Panel();
             content = new Panel();
             label2 = new Label();
             label_content = new Label();
+            lbl_username = new Label();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             header.SuspendLayout();
             navbar.SuspendLayout();
@@ -64,6 +66,7 @@
             // 
             btn_upload.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btn_upload.BackColor = Color.DarkOrange;
+            btn_upload.Cursor = Cursors.Hand;
             btn_upload.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
             btn_upload.Location = new Point(4, 105);
             btn_upload.Name = "btn_upload";
@@ -77,6 +80,7 @@
             // 
             btn_update.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btn_update.BackColor = Color.DarkOrange;
+            btn_update.Cursor = Cursors.Hand;
             btn_update.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
             btn_update.Location = new Point(4, 206);
             btn_update.Name = "btn_update";
@@ -90,6 +94,7 @@
             // 
             btn_riwayat.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btn_riwayat.BackColor = Color.DarkOrange;
+            btn_riwayat.Cursor = Cursors.Hand;
             btn_riwayat.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
             btn_riwayat.Location = new Point(4, 307);
             btn_riwayat.Name = "btn_riwayat";
@@ -115,6 +120,7 @@
             // 
             btn_dashboard.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btn_dashboard.BackColor = Color.DarkOrange;
+            btn_dashboard.Cursor = Cursors.Hand;
             btn_dashboard.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
             btn_dashboard.Location = new Point(4, 4);
             btn_dashboard.Name = "btn_dashboard";
@@ -127,14 +133,31 @@
             // header
             // 
             header.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            header.BackColor = SystemColors.AppWorkspace;
             header.BorderStyle = BorderStyle.FixedSingle;
+            header.Controls.Add(lbl_username);
+            header.Controls.Add(btn_logout);
             header.Controls.Add(logo);
             header.Controls.Add(label1);
-            header.Location = new Point(0, 0);
+            header.Location = new Point(4, -4);
             header.Name = "header";
-            header.Size = new Size(1231, 115);
+            header.Size = new Size(1266, 119);
             header.TabIndex = 5;
             header.Paint += header_Paint;
+            // 
+            // btn_logout
+            // 
+            btn_logout.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btn_logout.BackColor = Color.Silver;
+            btn_logout.Cursor = Cursors.Hand;
+            btn_logout.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_logout.Location = new Point(1150, 44);
+            btn_logout.Name = "btn_logout";
+            btn_logout.Size = new Size(94, 29);
+            btn_logout.TabIndex = 2;
+            btn_logout.Text = "Log Out";
+            btn_logout.UseVisualStyleBackColor = false;
+            btn_logout.Click += btn_logout_Click;
             // 
             // navbar
             // 
@@ -160,33 +183,36 @@
             // siderbar
             // 
             siderbar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            siderbar.BackColor = SystemColors.AppWorkspace;
             siderbar.BorderStyle = BorderStyle.FixedSingle;
             siderbar.Controls.Add(navbar);
-            siderbar.Location = new Point(0, 129);
+            siderbar.Location = new Point(0, 121);
             siderbar.Name = "siderbar";
-            siderbar.Size = new Size(335, 475);
+            siderbar.Size = new Size(335, 488);
             siderbar.TabIndex = 7;
             siderbar.Paint += siderbar_Paint;
             // 
             // content
             // 
             content.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            content.BackColor = SystemColors.AppWorkspace;
             content.BorderStyle = BorderStyle.FixedSingle;
             content.Controls.Add(label2);
             content.Controls.Add(label_content);
-            content.Location = new Point(344, 129);
+            content.Location = new Point(341, 121);
             content.Name = "content";
-            content.Size = new Size(890, 475);
+            content.Size = new Size(928, 488);
             content.TabIndex = 8;
             content.Paint += content_Paint;
             // 
             // label2
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label2.Location = new Point(-1, 54);
+            label2.BackColor = SystemColors.AppWorkspace;
+            label2.Location = new Point(0, 46);
             label2.Name = "label2";
             label2.Padding = new Padding(5);
-            label2.Size = new Size(886, 417);
+            label2.Size = new Size(924, 441);
             label2.TabIndex = 1;
             label2.Text = resources.GetString("label2.Text");
             label2.TextAlign = ContentAlignment.TopCenter;
@@ -195,20 +221,33 @@
             // label_content
             // 
             label_content.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label_content.BackColor = Color.DarkOrange;
             label_content.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            label_content.Location = new Point(-5, 7);
+            label_content.Location = new Point(-4, -1);
             label_content.Name = "label_content";
-            label_content.Size = new Size(882, 39);
+            label_content.Size = new Size(928, 47);
             label_content.TabIndex = 0;
             label_content.Text = "Dashboard";
             label_content.TextAlign = ContentAlignment.MiddleCenter;
             label_content.Click += lbl_dashboard_Click;
             // 
+            // lbl_username
+            // 
+            lbl_username.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lbl_username.AutoSize = true;
+            lbl_username.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_username.Location = new Point(1028, 41);
+            lbl_username.Name = "lbl_username";
+            lbl_username.Size = new Size(116, 28);
+            lbl_username.TabIndex = 3;
+            lbl_username.Text = "Mahasiswa";
+            // 
             // Beranda
             // 
             AutoScaleMode = AutoScaleMode.Inherit;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(1239, 616);
+            BackgroundImage = Properties.Resources.perpustakaan;
+            ClientSize = new Size(1270, 614);
             Controls.Add(content);
             Controls.Add(siderbar);
             Controls.Add(header);
@@ -240,5 +279,7 @@
         private Panel content;
         private Label label_content;
         private Label label2;
+        private Button btn_logout;
+        private Label lbl_username;
     }
 }

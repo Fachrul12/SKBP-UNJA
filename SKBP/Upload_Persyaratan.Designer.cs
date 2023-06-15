@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             header = new Panel();
+            btn_logout = new Button();
             logo = new PictureBox();
             label1 = new Label();
             siderbar = new Panel();
@@ -56,6 +57,7 @@
             tb_email = new TextBox();
             tb_nama = new TextBox();
             sidebar = new Panel();
+            lbl_username = new Label();
             header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             siderbar.SuspendLayout();
@@ -68,13 +70,30 @@
             // header
             // 
             header.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            header.BackColor = SystemColors.AppWorkspace;
             header.BorderStyle = BorderStyle.FixedSingle;
+            header.Controls.Add(lbl_username);
+            header.Controls.Add(btn_logout);
             header.Controls.Add(logo);
             header.Controls.Add(label1);
             header.Location = new Point(-2, -2);
             header.Name = "header";
             header.Size = new Size(1268, 119);
             header.TabIndex = 10;
+            // 
+            // btn_logout
+            // 
+            btn_logout.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btn_logout.BackColor = Color.Silver;
+            btn_logout.Cursor = Cursors.Hand;
+            btn_logout.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_logout.Location = new Point(1115, 44);
+            btn_logout.Name = "btn_logout";
+            btn_logout.Size = new Size(94, 29);
+            btn_logout.TabIndex = 3;
+            btn_logout.Text = "Log Out";
+            btn_logout.UseVisualStyleBackColor = false;
+            btn_logout.Click += btn_logout_Click;
             // 
             // logo
             // 
@@ -100,12 +119,11 @@
             // 
             // siderbar
             // 
-            siderbar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             siderbar.BorderStyle = BorderStyle.FixedSingle;
             siderbar.Controls.Add(navbar);
             siderbar.Location = new Point(3, 3);
             siderbar.Name = "siderbar";
-            siderbar.Size = new Size(327, 403);
+            siderbar.Size = new Size(327, 406);
             siderbar.TabIndex = 11;
             // 
             // navbar
@@ -125,7 +143,7 @@
             navbar.RowStyles.Add(new RowStyle(SizeType.Absolute, 100F));
             navbar.RowStyles.Add(new RowStyle(SizeType.Absolute, 100F));
             navbar.RowStyles.Add(new RowStyle(SizeType.Absolute, 100F));
-            navbar.Size = new Size(331, 397);
+            navbar.Size = new Size(331, 400);
             navbar.TabIndex = 6;
             // 
             // btn_update
@@ -183,10 +201,11 @@
             // label_konten
             // 
             label_konten.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label_konten.BackColor = Color.DarkOrange;
             label_konten.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
             label_konten.Location = new Point(3, 3);
             label_konten.Name = "label_konten";
-            label_konten.Size = new Size(923, 39);
+            label_konten.Size = new Size(920, 39);
             label_konten.TabIndex = 0;
             label_konten.Text = "Upload Persyaratan SKBP";
             label_konten.TextAlign = ContentAlignment.MiddleCenter;
@@ -195,6 +214,7 @@
             // konten
             // 
             konten.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            konten.BackColor = SystemColors.AppWorkspace;
             konten.BackgroundImageLayout = ImageLayout.None;
             konten.BorderStyle = BorderStyle.FixedSingle;
             konten.Controls.Add(btn_kirim);
@@ -206,13 +226,13 @@
             konten.Controls.Add(label_konten);
             konten.Location = new Point(338, 121);
             konten.Name = "konten";
-            konten.Size = new Size(931, 485);
+            konten.Size = new Size(928, 489);
             konten.TabIndex = 12;
             // 
             // btn_kirim
             // 
             btn_kirim.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btn_kirim.Location = new Point(781, 425);
+            btn_kirim.Location = new Point(778, 429);
             btn_kirim.Name = "btn_kirim";
             btn_kirim.Size = new Size(127, 39);
             btn_kirim.TabIndex = 15;
@@ -277,9 +297,9 @@
             gb_data.Controls.Add(tb_email);
             gb_data.Controls.Add(tb_nama);
             gb_data.Font = new Font("Segoe UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            gb_data.Location = new Point(14, 45);
+            gb_data.Location = new Point(3, 45);
             gb_data.Name = "gb_data";
-            gb_data.Size = new Size(905, 275);
+            gb_data.Size = new Size(920, 275);
             gb_data.TabIndex = 8;
             gb_data.TabStop = false;
             // 
@@ -343,7 +363,7 @@
             tb_prodi.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tb_prodi.Location = new Point(152, 224);
             tb_prodi.Name = "tb_prodi";
-            tb_prodi.Size = new Size(451, 36);
+            tb_prodi.Size = new Size(466, 36);
             tb_prodi.TabIndex = 5;
             // 
             // tb_fakultas
@@ -351,7 +371,7 @@
             tb_fakultas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tb_fakultas.Location = new Point(152, 175);
             tb_fakultas.Name = "tb_fakultas";
-            tb_fakultas.Size = new Size(451, 36);
+            tb_fakultas.Size = new Size(466, 36);
             tb_fakultas.TabIndex = 4;
             // 
             // tb_noWa
@@ -359,7 +379,7 @@
             tb_noWa.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tb_noWa.Location = new Point(152, 127);
             tb_noWa.Name = "tb_noWa";
-            tb_noWa.Size = new Size(451, 36);
+            tb_noWa.Size = new Size(466, 36);
             tb_noWa.TabIndex = 3;
             // 
             // tb_email
@@ -367,7 +387,7 @@
             tb_email.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tb_email.Location = new Point(152, 74);
             tb_email.Name = "tb_email";
-            tb_email.Size = new Size(451, 36);
+            tb_email.Size = new Size(466, 36);
             tb_email.TabIndex = 2;
             // 
             // tb_nama
@@ -375,18 +395,31 @@
             tb_nama.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tb_nama.Location = new Point(152, 24);
             tb_nama.Name = "tb_nama";
-            tb_nama.Size = new Size(451, 36);
+            tb_nama.Size = new Size(466, 36);
             tb_nama.TabIndex = 0;
             tb_nama.TextChanged += tb_nama_TextChanged;
             // 
             // sidebar
             // 
+            sidebar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            sidebar.BackColor = SystemColors.AppWorkspace;
             sidebar.BorderStyle = BorderStyle.FixedSingle;
             sidebar.Controls.Add(siderbar);
             sidebar.Location = new Point(0, 121);
             sidebar.Name = "sidebar";
-            sidebar.Size = new Size(335, 486);
+            sidebar.Size = new Size(335, 489);
             sidebar.TabIndex = 13;
+            // 
+            // lbl_username
+            // 
+            lbl_username.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lbl_username.AutoSize = true;
+            lbl_username.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_username.Location = new Point(993, 45);
+            lbl_username.Name = "lbl_username";
+            lbl_username.Size = new Size(116, 28);
+            lbl_username.TabIndex = 14;
+            lbl_username.Text = "Mahasiswa";
             // 
             // Upload_persyaratan
             // 
@@ -444,5 +477,7 @@
         private Label label_ktm;
         private Label label_spp;
         private Button btn_kirim;
+        private Button btn_logout;
+        private Label lbl_username;
     }
 }

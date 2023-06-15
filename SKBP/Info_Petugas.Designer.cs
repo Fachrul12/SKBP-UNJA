@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             header = new Panel();
+            btn_logout = new Button();
             logo = new PictureBox();
             label1 = new Label();
             navbar = new TableLayoutPanel();
@@ -44,9 +45,9 @@
             email = new DataGridViewTextBoxColumn();
             no_telepon = new DataGridViewTextBoxColumn();
             aksi = new DataGridViewButtonColumn();
-            label2 = new Label();
             label_content = new Label();
             siderbar = new Panel();
+            lbl_username = new Label();
             header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             navbar.SuspendLayout();
@@ -58,7 +59,10 @@
             // header
             // 
             header.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            header.BackColor = SystemColors.AppWorkspace;
             header.BorderStyle = BorderStyle.FixedSingle;
+            header.Controls.Add(lbl_username);
+            header.Controls.Add(btn_logout);
             header.Controls.Add(logo);
             header.Controls.Add(label1);
             header.Location = new Point(0, 6);
@@ -66,6 +70,20 @@
             header.Size = new Size(1239, 115);
             header.TabIndex = 10;
             header.Paint += header_Paint;
+            // 
+            // btn_logout
+            // 
+            btn_logout.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btn_logout.BackColor = Color.Silver;
+            btn_logout.Cursor = Cursors.Hand;
+            btn_logout.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_logout.Location = new Point(1112, 36);
+            btn_logout.Name = "btn_logout";
+            btn_logout.Size = new Size(94, 29);
+            btn_logout.TabIndex = 20;
+            btn_logout.Text = "Log Out";
+            btn_logout.UseVisualStyleBackColor = false;
+            btn_logout.Click += btn_logout_Click;
             // 
             // logo
             // 
@@ -152,10 +170,10 @@
             // content
             // 
             content.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            content.BackColor = SystemColors.AppWorkspace;
             content.BorderStyle = BorderStyle.FixedSingle;
             content.Controls.Add(btn_tambah);
             content.Controls.Add(dataGridView1);
-            content.Controls.Add(label2);
             content.Controls.Add(label_content);
             content.Location = new Point(341, 135);
             content.Name = "content";
@@ -166,7 +184,7 @@
             // btn_tambah
             // 
             btn_tambah.BackColor = Color.DarkOrange;
-            btn_tambah.Location = new Point(28, 72);
+            btn_tambah.Location = new Point(28, 60);
             btn_tambah.Name = "btn_tambah";
             btn_tambah.Size = new Size(152, 41);
             btn_tambah.TabIndex = 3;
@@ -177,6 +195,7 @@
             // dataGridView1
             // 
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.BackgroundColor = SystemColors.ButtonFace;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { username, password, nama, email, no_telepon, aksi });
             dataGridView1.Location = new Point(28, 119);
@@ -235,20 +254,10 @@
             aksi.Name = "aksi";
             aksi.Text = "Hapus";
             // 
-            // label2
-            // 
-            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label2.Location = new Point(-1, 39);
-            label2.Name = "label2";
-            label2.Padding = new Padding(5);
-            label2.Size = new Size(866, 342);
-            label2.TabIndex = 1;
-            label2.TextAlign = ContentAlignment.TopCenter;
-            label2.Click += label2_Click;
-            // 
             // label_content
             // 
             label_content.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label_content.BackColor = Color.DarkOrange;
             label_content.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
             label_content.Location = new Point(-1, 0);
             label_content.Name = "label_content";
@@ -261,6 +270,7 @@
             // siderbar
             // 
             siderbar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            siderbar.BackColor = SystemColors.AppWorkspace;
             siderbar.BorderStyle = BorderStyle.FixedSingle;
             siderbar.Controls.Add(navbar);
             siderbar.Location = new Point(0, 135);
@@ -268,6 +278,17 @@
             siderbar.Size = new Size(335, 475);
             siderbar.TabIndex = 11;
             siderbar.Paint += siderbar_Paint;
+            // 
+            // lbl_username
+            // 
+            lbl_username.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lbl_username.AutoSize = true;
+            lbl_username.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_username.Location = new Point(978, 36);
+            lbl_username.Name = "lbl_username";
+            lbl_username.Size = new Size(128, 28);
+            lbl_username.TabIndex = 21;
+            lbl_username.Text = "SuperAdmin";
             // 
             // Info_Petugas
             // 
@@ -310,6 +331,7 @@
         private DataGridViewTextBoxColumn email;
         private DataGridViewTextBoxColumn no_telepon;
         private DataGridViewButtonColumn aksi;
-        private Label label2;
+        private Button btn_logout;
+        private Label lbl_username;
     }
 }

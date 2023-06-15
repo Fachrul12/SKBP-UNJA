@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             header = new Panel();
+            lbl_username = new Label();
+            btn_logout = new Button();
             logo = new PictureBox();
             label1 = new Label();
             sidebar = new Panel();
@@ -48,12 +50,12 @@
             panel2 = new Panel();
             panel3 = new Panel();
             view_riwayat = new DataGridView();
-            label_konten = new Label();
             Periode = new DataGridViewTextBoxColumn();
             tanggal_lapor = new DataGridViewTextBoxColumn();
             tanggal_disetujui = new DataGridViewTextBoxColumn();
             status = new DataGridViewTextBoxColumn();
             aksi = new DataGridViewButtonColumn();
+            label_konten = new Label();
             header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             navbar.SuspendLayout();
@@ -67,13 +69,41 @@
             // header
             // 
             header.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            header.BackColor = SystemColors.AppWorkspace;
             header.BorderStyle = BorderStyle.FixedSingle;
+            header.Controls.Add(lbl_username);
+            header.Controls.Add(btn_logout);
             header.Controls.Add(logo);
             header.Controls.Add(label1);
             header.Location = new Point(0, 0);
             header.Name = "header";
             header.Size = new Size(1237, 119);
             header.TabIndex = 11;
+            // 
+            // lbl_username
+            // 
+            lbl_username.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lbl_username.AutoSize = true;
+            lbl_username.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_username.Location = new Point(963, 45);
+            lbl_username.Name = "lbl_username";
+            lbl_username.Size = new Size(116, 28);
+            lbl_username.TabIndex = 13;
+            lbl_username.Text = "Mahasiswa";
+            // 
+            // btn_logout
+            // 
+            btn_logout.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btn_logout.BackColor = Color.Silver;
+            btn_logout.Cursor = Cursors.Hand;
+            btn_logout.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_logout.Location = new Point(1085, 44);
+            btn_logout.Name = "btn_logout";
+            btn_logout.Size = new Size(94, 29);
+            btn_logout.TabIndex = 3;
+            btn_logout.Text = "Log Out";
+            btn_logout.UseVisualStyleBackColor = false;
+            btn_logout.Click += btn_logout_Click;
             // 
             // logo
             // 
@@ -199,7 +229,6 @@
             // 
             // tableLayoutPanel2
             // 
-            tableLayoutPanel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             tableLayoutPanel2.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
@@ -273,6 +302,7 @@
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            panel2.BackColor = SystemColors.AppWorkspace;
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(tableLayoutPanel2);
             panel2.Location = new Point(0, 121);
@@ -283,6 +313,7 @@
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel3.BackColor = SystemColors.AppWorkspace;
             panel3.BorderStyle = BorderStyle.FixedSingle;
             panel3.Controls.Add(view_riwayat);
             panel3.Controls.Add(label_konten);
@@ -293,25 +324,17 @@
             // 
             // view_riwayat
             // 
+            view_riwayat.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            view_riwayat.BackgroundColor = SystemColors.ButtonHighlight;
             view_riwayat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             view_riwayat.Columns.AddRange(new DataGridViewColumn[] { Periode, tanggal_lapor, tanggal_disetujui, status, aksi });
-            view_riwayat.Location = new Point(12, 43);
+            view_riwayat.Location = new Point(12, 60);
             view_riwayat.Name = "view_riwayat";
             view_riwayat.RowHeadersWidth = 51;
             view_riwayat.RowTemplate.Height = 29;
             view_riwayat.Size = new Size(876, 194);
             view_riwayat.TabIndex = 2;
-            // 
-            // label_konten
-            // 
-            label_konten.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label_konten.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            label_konten.Location = new Point(1, 1);
-            label_konten.Name = "label_konten";
-            label_konten.Size = new Size(890, 39);
-            label_konten.TabIndex = 1;
-            label_konten.Text = "Riwayat";
-            label_konten.TextAlign = ContentAlignment.MiddleCenter;
+            view_riwayat.CellContentClick += view_riwayat_CellContentClick;
             // 
             // Periode
             // 
@@ -353,6 +376,18 @@
             aksi.Name = "aksi";
             aksi.Resizable = DataGridViewTriState.True;
             aksi.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // label_konten
+            // 
+            label_konten.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label_konten.BackColor = Color.DarkOrange;
+            label_konten.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
+            label_konten.Location = new Point(1, 1);
+            label_konten.Name = "label_konten";
+            label_konten.Size = new Size(890, 39);
+            label_konten.TabIndex = 1;
+            label_konten.Text = "Riwayat";
+            label_konten.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // Riwayat
             // 
@@ -406,5 +441,7 @@
         private DataGridViewTextBoxColumn tanggal_disetujui;
         private DataGridViewTextBoxColumn status;
         private DataGridViewButtonColumn aksi;
+        private Button btn_logout;
+        private Label lbl_username;
     }
 }
