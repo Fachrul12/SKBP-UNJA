@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,16 @@ namespace SKBP
 {
     public partial class Riwayat : Form
     {
+        private MySqlConnection connection;
+        private MySqlDataAdapter adapter;
+        private DataTable dataTable;
+        private int selectedId;
+
         public Riwayat()
         {
             InitializeComponent();
         }
+
 
         private void btn_dashboard_Click(object sender, EventArgs e)
         {
@@ -58,5 +65,42 @@ namespace SKBP
         {
 
         }
+
+        private void Riwayat_Load(object sender, EventArgs e)
+        {
+            string connectionString = "server=localhost;database=db_skbp;uid=root;pwd=\"\"";
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT id,create_at,validasi_at,status FROM skbp_form;";
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                    {
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+
+                        view_riwayat.DataSource = dataTable;
+
+                        view_riwayat.Columns["id"].HeaderText = "Periode";
+                        view_riwayat.Columns["create_at"].HeaderText = "Tanggal Pembuatan";
+                        view_riwayat.Columns["validasi_at"].HeaderText = "Tanggal Validasi";
+                        view_riwayat.Columns["status"].HeaderText = "Status";
+
+                        view_riwayat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    }
+                }
+            }
+        }
+
+        private void Riwayat_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            connection.Close();
+
+        }
     }
 }
+
+
+

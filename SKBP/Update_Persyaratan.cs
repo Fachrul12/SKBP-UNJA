@@ -16,6 +16,7 @@ namespace SKBP
         String conString = "server=localhost;database=db_skbp;uid=root;pwd=\"\"";
         private string ktmfilePath = "";
         private string sppfilePath = "";
+        private int selectedId = 0;
         public Update_Persyaratan()
         {
             InitializeComponent();
@@ -65,47 +66,43 @@ namespace SKBP
 
         private void btn_kirim_Click(object sender, EventArgs e)
         {
+            if (selectedId == 0)
+            {
+                MessageBox.Show("Harap pilih ID terlebih dahulu");
+                return;
+            }
+
+            // Dapatkan data yang akan diperbarui dari kontrol TextBox
             string Nama = tb_nama.Text;
             string Email = tb_email.Text;
             string Nomor_WA = tb_noWa.Text;
             string Fakultas = tb_fakultas.Text;
             string Prodi = tb_prodi.Text;
 
-
-            if (!string.IsNullOrEmpty(ktmfilePath) && !string.IsNullOrEmpty(sppfilePath))
+            using (MySqlConnection connection = new MySqlConnection(conString))
             {
-                string ktmfileContent = File.ReadAllText(ktmfilePath);
-                string sppfileContent = File.ReadAllText(sppfilePath);
+                connection.Open();
 
-                using (MySqlConnection connection = new MySqlConnection(conString))
+                string query = "UPDATE skbp_form SET Nama = @Nama, Email = @Email, Nomor_WA = @Nomor_WA, Fakultas = @Fakultas, Prodi = @Prodi WHERE id = @ID";
+                MySqlCommand command = new MySqlCommand(query, connection);
+
+                command.Parameters.AddWithValue("@Nama", Nama);
+                command.Parameters.AddWithValue("@Email", Email);
+                command.Parameters.AddWithValue("@Nomor_WA", Nomor_WA);
+                command.Parameters.AddWithValue("@Fakultas", Fakultas);
+                command.Parameters.AddWithValue("@Prodi", Prodi);
+                command.Parameters.AddWithValue("@ID", selectedId);
+
+                int rowsAffected = command.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
                 {
-                    connection.Open();
-
-                    string query = $"UPDATE skbp_form SET Nama=@Nama,Email=@Email,Nomor_WA=@Nomor_WA,Fakultas=@Fakultas,Prodi=@Prodi,KTM=@ktmfileContent,SPP=@sppfileContent WHERE 7";
-                    MySqlCommand command = new MySqlCommand(query, connection);
-
-                    //VALUE
-                    command.Parameters.AddWithValue("@Nama", Nama);
-                    command.Parameters.AddWithValue("@Email", Email);
-                    command.Parameters.AddWithValue("@Nomor_WA", Nomor_WA);
-                    command.Parameters.AddWithValue("@Fakultas", Fakultas);
-                    command.Parameters.AddWithValue("@Prodi", Prodi);
-                    command.Parameters.AddWithValue("@ktmfileContent", ktmfileContent);
-                    command.Parameters.AddWithValue("@sppfileContent", sppfileContent);
-
-
-                    int rowsAffected = command.ExecuteNonQuery();
-
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Data berhasil ditambah ke database");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Gagal menambahkan data ke database");
-                    }
+                    MessageBox.Show("Data berhasil diperbarui");
                 }
-
+                else
+                {
+                    MessageBox.Show("Gagal memperbarui data");
+                }
             }
         }
 
@@ -135,6 +132,34 @@ namespace SKBP
                 {
                     ktmfilePath = ktm.FileName;
                     MessageBox.Show("File Berhasil dipilih");
+                }
+            }
+        }
+
+        private void cmb_id_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmb_id.SelectedItem != null)
+            {
+                selectedId = (int)cmb_id.SelectedItem;
+            }
+        }
+
+        private void Update_Persyaratan_Load(object sender, EventArgs e)
+        {
+            using (MySqlConnection connection = new MySqlConnection(conString))
+            {
+                connection.Open();
+
+                string query = "SELECT id FROM skbp_form WHERE status = ''";
+                MySqlCommand command = new MySqlCommand(query, connection);
+
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int id = reader.GetInt32("id");
+                        cmb_id.Items.Add(id);
+                    }
                 }
             }
         }

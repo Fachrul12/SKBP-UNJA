@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             header = new Panel();
+            lbl_username = new Label();
             btn_logout = new Button();
             logo = new PictureBox();
             label1 = new Label();
@@ -46,7 +47,6 @@
             pilih = new DataGridViewButtonColumn();
             label_content = new Label();
             siderbar = new Panel();
-            lbl_username = new Label();
             header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             navbar.SuspendLayout();
@@ -68,6 +68,17 @@
             header.Name = "header";
             header.Size = new Size(1207, 115);
             header.TabIndex = 12;
+            // 
+            // lbl_username
+            // 
+            lbl_username.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lbl_username.AutoSize = true;
+            lbl_username.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_username.Location = new Point(995, 45);
+            lbl_username.Name = "lbl_username";
+            lbl_username.Size = new Size(74, 28);
+            lbl_username.TabIndex = 19;
+            lbl_username.Text = "Admin";
             // 
             // btn_logout
             // 
@@ -256,17 +267,6 @@
             siderbar.Size = new Size(335, 485);
             siderbar.TabIndex = 13;
             // 
-            // lbl_username
-            // 
-            lbl_username.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lbl_username.AutoSize = true;
-            lbl_username.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_username.Location = new Point(995, 45);
-            lbl_username.Name = "lbl_username";
-            lbl_username.Size = new Size(74, 28);
-            lbl_username.TabIndex = 19;
-            lbl_username.Text = "Admin";
-            // 
             // list_mahasiswa
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -277,6 +277,7 @@
             Controls.Add(siderbar);
             Name = "list_mahasiswa";
             Text = "list_mahasiswa";
+            WindowState = FormWindowState.Maximized;
             header.ResumeLayout(false);
             header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)logo).EndInit();

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             header = new Panel();
             lbl_username = new Label();
             btn_logout = new Button();
@@ -50,12 +51,12 @@
             panel2 = new Panel();
             panel3 = new Panel();
             view_riwayat = new DataGridView();
-            Periode = new DataGridViewTextBoxColumn();
-            tanggal_lapor = new DataGridViewTextBoxColumn();
-            tanggal_disetujui = new DataGridViewTextBoxColumn();
-            status = new DataGridViewTextBoxColumn();
-            aksi = new DataGridViewButtonColumn();
             label_konten = new Label();
+            mySqlConnection1 = new MySql.Data.MySqlClient.MySqlConnection();
+            mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
+            mySqlDataAdapter1 = new MySql.Data.MySqlClient.MySqlDataAdapter();
+            bindingSource1 = new BindingSource(components);
+            uploadpersyaratanBindingSource = new BindingSource(components);
             header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             navbar.SuspendLayout();
@@ -64,6 +65,8 @@
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)view_riwayat).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)uploadpersyaratanBindingSource).BeginInit();
             SuspendLayout();
             // 
             // header
@@ -307,7 +310,7 @@
             panel2.Controls.Add(tableLayoutPanel2);
             panel2.Location = new Point(0, 121);
             panel2.Name = "panel2";
-            panel2.Size = new Size(335, 486);
+            panel2.Size = new Size(335, 592);
             panel2.TabIndex = 13;
             // 
             // panel3
@@ -319,7 +322,7 @@
             panel3.Controls.Add(label_konten);
             panel3.Location = new Point(338, 121);
             panel3.Name = "panel3";
-            panel3.Size = new Size(898, 486);
+            panel3.Size = new Size(898, 592);
             panel3.TabIndex = 14;
             // 
             // view_riwayat
@@ -327,55 +330,13 @@
             view_riwayat.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             view_riwayat.BackgroundColor = SystemColors.ButtonHighlight;
             view_riwayat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            view_riwayat.Columns.AddRange(new DataGridViewColumn[] { Periode, tanggal_lapor, tanggal_disetujui, status, aksi });
-            view_riwayat.Location = new Point(12, 60);
+            view_riwayat.Location = new Point(12, 86);
             view_riwayat.Name = "view_riwayat";
             view_riwayat.RowHeadersWidth = 51;
             view_riwayat.RowTemplate.Height = 29;
             view_riwayat.Size = new Size(876, 194);
             view_riwayat.TabIndex = 2;
             view_riwayat.CellContentClick += view_riwayat_CellContentClick;
-            // 
-            // Periode
-            // 
-            Periode.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Periode.HeaderText = "Periode";
-            Periode.MinimumWidth = 6;
-            Periode.Name = "Periode";
-            Periode.ReadOnly = true;
-            // 
-            // tanggal_lapor
-            // 
-            tanggal_lapor.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            tanggal_lapor.HeaderText = "Tanggal Lapor";
-            tanggal_lapor.MinimumWidth = 6;
-            tanggal_lapor.Name = "tanggal_lapor";
-            tanggal_lapor.ReadOnly = true;
-            // 
-            // tanggal_disetujui
-            // 
-            tanggal_disetujui.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            tanggal_disetujui.HeaderText = "Tanggal Disetujui";
-            tanggal_disetujui.MinimumWidth = 6;
-            tanggal_disetujui.Name = "tanggal_disetujui";
-            tanggal_disetujui.ReadOnly = true;
-            // 
-            // status
-            // 
-            status.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            status.HeaderText = "Status";
-            status.MinimumWidth = 6;
-            status.Name = "status";
-            status.ReadOnly = true;
-            // 
-            // aksi
-            // 
-            aksi.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            aksi.HeaderText = "Aksi";
-            aksi.MinimumWidth = 6;
-            aksi.Name = "aksi";
-            aksi.Resizable = DataGridViewTriState.True;
-            aksi.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
             // label_konten
             // 
@@ -389,11 +350,29 @@
             label_konten.Text = "Riwayat";
             label_konten.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // mySqlCommand1
+            // 
+            mySqlCommand1.CacheAge = 0;
+            mySqlCommand1.Connection = null;
+            mySqlCommand1.EnableCaching = false;
+            mySqlCommand1.Transaction = null;
+            // 
+            // mySqlDataAdapter1
+            // 
+            mySqlDataAdapter1.DeleteCommand = null;
+            mySqlDataAdapter1.InsertCommand = null;
+            mySqlDataAdapter1.SelectCommand = null;
+            mySqlDataAdapter1.UpdateCommand = null;
+            // 
+            // uploadpersyaratanBindingSource
+            // 
+            uploadpersyaratanBindingSource.DataSource = typeof(Upload_persyaratan);
+            // 
             // Riwayat
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1239, 616);
+            ClientSize = new Size(1239, 722);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(header);
@@ -401,6 +380,8 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Riwayat";
             WindowState = FormWindowState.Maximized;
+            FormClosing += Riwayat_FormClosing;
+            Load += Riwayat_Load;
             header.ResumeLayout(false);
             header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)logo).EndInit();
@@ -410,6 +391,8 @@
             panel2.ResumeLayout(false);
             panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)view_riwayat).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)uploadpersyaratanBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -436,12 +419,12 @@
         private Panel panel3;
         private Label label_konten;
         private DataGridView view_riwayat;
-        private DataGridViewTextBoxColumn Periode;
-        private DataGridViewTextBoxColumn tanggal_lapor;
-        private DataGridViewTextBoxColumn tanggal_disetujui;
-        private DataGridViewTextBoxColumn status;
-        private DataGridViewButtonColumn aksi;
         private Button btn_logout;
         private Label lbl_username;
+        private MySql.Data.MySqlClient.MySqlConnection mySqlConnection1;
+        private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
+        private MySql.Data.MySqlClient.MySqlDataAdapter mySqlDataAdapter1;
+        private BindingSource bindingSource1;
+        private BindingSource uploadpersyaratanBindingSource;
     }
 }

@@ -40,6 +40,7 @@
             btn_logout = new Button();
             navbar = new TableLayoutPanel();
             content = new Panel();
+            cmb_id = new ComboBox();
             btn_kirim = new Button();
             btn_spp = new Button();
             btn_ktm = new Button();
@@ -70,10 +71,10 @@
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.BackColor = SystemColors.AppWorkspace;
-            label2.Location = new Point(0, 42);
+            label2.Location = new Point(2, 42);
             label2.Name = "label2";
             label2.Padding = new Padding(5);
-            label2.Size = new Size(894, 439);
+            label2.Size = new Size(891, 483);
             label2.TabIndex = 1;
             label2.TextAlign = ContentAlignment.TopCenter;
             label2.Click += label2_Click;
@@ -214,6 +215,7 @@
             // 
             content.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             content.BorderStyle = BorderStyle.FixedSingle;
+            content.Controls.Add(cmb_id);
             content.Controls.Add(btn_kirim);
             content.Controls.Add(btn_spp);
             content.Controls.Add(btn_ktm);
@@ -224,25 +226,34 @@
             content.Controls.Add(label_konten);
             content.Location = new Point(338, 121);
             content.Name = "content";
-            content.Size = new Size(898, 486);
+            content.Size = new Size(898, 530);
             content.TabIndex = 11;
+            // 
+            // cmb_id
+            // 
+            cmb_id.FormattingEnabled = true;
+            cmb_id.Location = new Point(25, 446);
+            cmb_id.Name = "cmb_id";
+            cmb_id.Size = new Size(211, 28);
+            cmb_id.TabIndex = 13;
+            cmb_id.SelectedIndexChanged += cmb_id_SelectedIndexChanged;
             // 
             // btn_kirim
             // 
             btn_kirim.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btn_kirim.Location = new Point(747, 424);
+            btn_kirim.Location = new Point(747, 468);
             btn_kirim.Name = "btn_kirim";
             btn_kirim.Size = new Size(127, 39);
             btn_kirim.TabIndex = 12;
-            btn_kirim.Text = "Kirim";
+            btn_kirim.Text = "Update";
             btn_kirim.UseVisualStyleBackColor = true;
             btn_kirim.Click += btn_kirim_Click;
             // 
             // btn_spp
             // 
-            btn_spp.Location = new Point(102, 385);
+            btn_spp.Location = new Point(102, 394);
             btn_spp.Name = "btn_spp";
-            btn_spp.Size = new Size(134, 39);
+            btn_spp.Size = new Size(134, 30);
             btn_spp.TabIndex = 11;
             btn_spp.Text = "Upload File SPP";
             btn_spp.UseVisualStyleBackColor = true;
@@ -250,9 +261,9 @@
             // 
             // btn_ktm
             // 
-            btn_ktm.Location = new Point(102, 337);
+            btn_ktm.Location = new Point(102, 348);
             btn_ktm.Name = "btn_ktm";
-            btn_ktm.Size = new Size(134, 41);
+            btn_ktm.Size = new Size(134, 30);
             btn_ktm.TabIndex = 10;
             btn_ktm.Text = "Upload File KTM";
             btn_ktm.UseVisualStyleBackColor = true;
@@ -416,14 +427,14 @@
             siderbar.Controls.Add(navbar);
             siderbar.Location = new Point(0, 121);
             siderbar.Name = "siderbar";
-            siderbar.Size = new Size(335, 486);
+            siderbar.Size = new Size(335, 530);
             siderbar.TabIndex = 10;
             // 
             // Update_Persyaratan
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1239, 616);
+            ClientSize = new Size(1239, 660);
             Controls.Add(header);
             Controls.Add(content);
             Controls.Add(siderbar);
@@ -431,6 +442,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Update_Persyaratan";
             WindowState = FormWindowState.Maximized;
+            Load += Update_Persyaratan_Load;
             ((System.ComponentModel.ISupportInitialize)logo).EndInit();
             header.ResumeLayout(false);
             header.PerformLayout();
@@ -475,5 +487,6 @@
         private TextBox tb_nama;
         private Button btn_logout;
         private Label lbl_username;
+        private ComboBox cmb_id;
     }
 }
