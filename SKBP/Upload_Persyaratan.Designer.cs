@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             header = new Panel();
+            lbl_username = new Label();
             btn_logout = new Button();
             logo = new PictureBox();
             label1 = new Label();
@@ -57,7 +58,7 @@
             tb_email = new TextBox();
             tb_nama = new TextBox();
             sidebar = new Panel();
-            lbl_username = new Label();
+            btn_pesan = new Button();
             header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             siderbar.SuspendLayout();
@@ -72,6 +73,7 @@
             header.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             header.BackColor = SystemColors.AppWorkspace;
             header.BorderStyle = BorderStyle.FixedSingle;
+            header.Controls.Add(btn_pesan);
             header.Controls.Add(lbl_username);
             header.Controls.Add(btn_logout);
             header.Controls.Add(logo);
@@ -80,6 +82,17 @@
             header.Name = "header";
             header.Size = new Size(1268, 119);
             header.TabIndex = 10;
+            // 
+            // lbl_username
+            // 
+            lbl_username.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lbl_username.AutoSize = true;
+            lbl_username.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_username.Location = new Point(993, 43);
+            lbl_username.Name = "lbl_username";
+            lbl_username.Size = new Size(116, 28);
+            lbl_username.TabIndex = 14;
+            lbl_username.Text = "Mahasiswa";
             // 
             // btn_logout
             // 
@@ -410,16 +423,18 @@
             sidebar.Size = new Size(335, 489);
             sidebar.TabIndex = 13;
             // 
-            // lbl_username
+            // btn_pesan
             // 
-            lbl_username.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lbl_username.AutoSize = true;
-            lbl_username.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_username.Location = new Point(993, 45);
-            lbl_username.Name = "lbl_username";
-            lbl_username.Size = new Size(116, 28);
-            lbl_username.TabIndex = 14;
-            lbl_username.Text = "Mahasiswa";
+            btn_pesan.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btn_pesan.BackColor = Color.Silver;
+            btn_pesan.Cursor = Cursors.Hand;
+            btn_pesan.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_pesan.Location = new Point(868, 46);
+            btn_pesan.Name = "btn_pesan";
+            btn_pesan.Size = new Size(94, 29);
+            btn_pesan.TabIndex = 15;
+            btn_pesan.Text = "Pesan";
+            btn_pesan.UseVisualStyleBackColor = false;
             // 
             // Upload_persyaratan
             // 
@@ -479,5 +494,6 @@
         private Button btn_kirim;
         private Button btn_logout;
         private Label lbl_username;
+        private Button btn_pesan;
     }
 }

@@ -96,7 +96,6 @@ namespace SKBP
 
         private void Riwayat_FormClosing(object sender, FormClosingEventArgs e)
         {
-            connection.Close();
 
         }
     }

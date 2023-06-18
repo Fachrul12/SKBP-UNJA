@@ -38,20 +38,14 @@
             btn_dashboard = new Button();
             navbar = new TableLayoutPanel();
             content = new Panel();
-            dataGridView1 = new DataGridView();
-            nama = new DataGridViewTextBoxColumn();
-            email = new DataGridViewTextBoxColumn();
-            nim = new DataGridViewTextBoxColumn();
-            fakultas = new DataGridViewTextBoxColumn();
-            upload = new DataGridViewTextBoxColumn();
-            pilih = new DataGridViewButtonColumn();
+            list_mhs = new DataGridView();
             label_content = new Label();
             siderbar = new Panel();
             header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             navbar.SuspendLayout();
             content.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)list_mhs).BeginInit();
             siderbar.SuspendLayout();
             SuspendLayout();
             // 
@@ -176,74 +170,25 @@
             content.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             content.BackColor = SystemColors.AppWorkspace;
             content.BorderStyle = BorderStyle.FixedSingle;
-            content.Controls.Add(dataGridView1);
+            content.Controls.Add(list_mhs);
             content.Controls.Add(label_content);
             content.Location = new Point(343, 129);
             content.Name = "content";
             content.Size = new Size(865, 485);
             content.TabIndex = 14;
             // 
-            // dataGridView1
+            // list_mhs
             // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.BackgroundColor = SystemColors.ButtonFace;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { nama, email, nim, fakultas, upload, pilih });
-            dataGridView1.Location = new Point(18, 83);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(828, 180);
-            dataGridView1.TabIndex = 1;
-            // 
-            // nama
-            // 
-            nama.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            nama.HeaderText = "Nama";
-            nama.MinimumWidth = 6;
-            nama.Name = "nama";
-            nama.ReadOnly = true;
-            // 
-            // email
-            // 
-            email.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            email.HeaderText = "Email";
-            email.MinimumWidth = 6;
-            email.Name = "email";
-            email.ReadOnly = true;
-            // 
-            // nim
-            // 
-            nim.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            nim.HeaderText = "NIM";
-            nim.MinimumWidth = 6;
-            nim.Name = "nim";
-            nim.ReadOnly = true;
-            // 
-            // fakultas
-            // 
-            fakultas.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            fakultas.HeaderText = "Fakultas";
-            fakultas.MinimumWidth = 6;
-            fakultas.Name = "fakultas";
-            fakultas.ReadOnly = true;
-            // 
-            // upload
-            // 
-            upload.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            upload.HeaderText = "Tanggal Upload";
-            upload.MinimumWidth = 6;
-            upload.Name = "upload";
-            upload.ReadOnly = true;
-            // 
-            // pilih
-            // 
-            pilih.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            pilih.HeaderText = "Pilih";
-            pilih.MinimumWidth = 6;
-            pilih.Name = "pilih";
-            pilih.Resizable = DataGridViewTriState.True;
-            pilih.SortMode = DataGridViewColumnSortMode.Automatic;
+            list_mhs.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            list_mhs.BackgroundColor = SystemColors.ButtonFace;
+            list_mhs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            list_mhs.Location = new Point(18, 83);
+            list_mhs.Name = "list_mhs";
+            list_mhs.RowHeadersWidth = 51;
+            list_mhs.RowTemplate.Height = 29;
+            list_mhs.Size = new Size(828, 180);
+            list_mhs.TabIndex = 1;
+            list_mhs.CellContentClick += dataGridView1_CellContentClick;
             // 
             // label_content
             // 
@@ -278,12 +223,13 @@
             Name = "list_mahasiswa";
             Text = "list_mahasiswa";
             WindowState = FormWindowState.Maximized;
+            Load += list_mahasiswa_Load;
             header.ResumeLayout(false);
             header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)logo).EndInit();
             navbar.ResumeLayout(false);
             content.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)list_mhs).EndInit();
             siderbar.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -300,13 +246,7 @@
         private Panel content;
         private Label label_content;
         private Panel siderbar;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn nama;
-        private DataGridViewTextBoxColumn email;
-        private DataGridViewTextBoxColumn nim;
-        private DataGridViewTextBoxColumn fakultas;
-        private DataGridViewTextBoxColumn upload;
-        private DataGridViewButtonColumn pilih;
+        private DataGridView list_mhs;
         private Button btn_logout;
         private Label lbl_username;
     }

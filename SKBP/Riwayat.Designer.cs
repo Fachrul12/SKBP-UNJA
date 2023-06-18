@@ -57,6 +57,7 @@
             mySqlDataAdapter1 = new MySql.Data.MySqlClient.MySqlDataAdapter();
             bindingSource1 = new BindingSource(components);
             uploadpersyaratanBindingSource = new BindingSource(components);
+            btn_pesan = new Button();
             header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             navbar.SuspendLayout();
@@ -74,6 +75,7 @@
             header.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             header.BackColor = SystemColors.AppWorkspace;
             header.BorderStyle = BorderStyle.FixedSingle;
+            header.Controls.Add(btn_pesan);
             header.Controls.Add(lbl_username);
             header.Controls.Add(btn_logout);
             header.Controls.Add(logo);
@@ -88,7 +90,7 @@
             lbl_username.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             lbl_username.AutoSize = true;
             lbl_username.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_username.Location = new Point(963, 45);
+            lbl_username.Location = new Point(993, 43);
             lbl_username.Name = "lbl_username";
             lbl_username.Size = new Size(116, 28);
             lbl_username.TabIndex = 13;
@@ -100,7 +102,7 @@
             btn_logout.BackColor = Color.Silver;
             btn_logout.Cursor = Cursors.Hand;
             btn_logout.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_logout.Location = new Point(1085, 44);
+            btn_logout.Location = new Point(1115, 44);
             btn_logout.Name = "btn_logout";
             btn_logout.Size = new Size(94, 29);
             btn_logout.TabIndex = 3;
@@ -368,6 +370,19 @@
             // 
             uploadpersyaratanBindingSource.DataSource = typeof(Upload_persyaratan);
             // 
+            // btn_pesan
+            // 
+            btn_pesan.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btn_pesan.BackColor = Color.Silver;
+            btn_pesan.Cursor = Cursors.Hand;
+            btn_pesan.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_pesan.Location = new Point(868, 46);
+            btn_pesan.Name = "btn_pesan";
+            btn_pesan.Size = new Size(94, 29);
+            btn_pesan.TabIndex = 16;
+            btn_pesan.Text = "Pesan";
+            btn_pesan.UseVisualStyleBackColor = false;
+            // 
             // Riwayat
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -426,5 +441,6 @@
         private MySql.Data.MySqlClient.MySqlDataAdapter mySqlDataAdapter1;
         private BindingSource bindingSource1;
         private BindingSource uploadpersyaratanBindingSource;
+        private Button btn_pesan;
     }
 }

@@ -59,6 +59,7 @@
             tb_nama = new TextBox();
             label_konten = new Label();
             siderbar = new Panel();
+            btn_pesan = new Button();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             header.SuspendLayout();
             navbar.SuspendLayout();
@@ -158,6 +159,7 @@
             header.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             header.BackColor = SystemColors.AppWorkspace;
             header.BorderStyle = BorderStyle.FixedSingle;
+            header.Controls.Add(btn_pesan);
             header.Controls.Add(lbl_username);
             header.Controls.Add(btn_logout);
             header.Controls.Add(logo);
@@ -430,6 +432,19 @@
             siderbar.Size = new Size(335, 530);
             siderbar.TabIndex = 10;
             // 
+            // btn_pesan
+            // 
+            btn_pesan.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btn_pesan.BackColor = Color.Silver;
+            btn_pesan.Cursor = Cursors.Hand;
+            btn_pesan.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_pesan.Location = new Point(868, 46);
+            btn_pesan.Name = "btn_pesan";
+            btn_pesan.Size = new Size(94, 29);
+            btn_pesan.TabIndex = 16;
+            btn_pesan.Text = "Pesan";
+            btn_pesan.UseVisualStyleBackColor = false;
+            // 
             // Update_Persyaratan
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -488,5 +503,6 @@
         private Button btn_logout;
         private Label lbl_username;
         private ComboBox cmb_id;
+        private Button btn_pesan;
     }
 }

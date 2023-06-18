@@ -37,8 +37,10 @@
             logo = new PictureBox();
             label1 = new Label();
             header = new Panel();
+            lbl_username = new Label();
             btn_logout = new Button();
             content = new Panel();
+            cmb_nama = new ComboBox();
             splitContainer1 = new SplitContainer();
             label_nama = new Label();
             label_email = new Label();
@@ -53,12 +55,12 @@
             btn_ktm = new Button();
             tb_prodi = new TextBox();
             label2 = new Label();
-            textBox1 = new TextBox();
+            tb_pesan = new TextBox();
             btn_submit = new Button();
-            skbp = new Button();
+            btn_skbp = new Button();
             btn_tolak = new Button();
             openFileDialog1 = new OpenFileDialog();
-            lbl_username = new Label();
+            openFileDialog2 = new OpenFileDialog();
             siderbar.SuspendLayout();
             navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
@@ -77,7 +79,7 @@
             siderbar.Controls.Add(navbar);
             siderbar.Location = new Point(3, 129);
             siderbar.Name = "siderbar";
-            siderbar.Size = new Size(335, 491);
+            siderbar.Size = new Size(335, 526);
             siderbar.TabIndex = 16;
             // 
             // navbar
@@ -182,6 +184,17 @@
             header.Size = new Size(1201, 115);
             header.TabIndex = 15;
             // 
+            // lbl_username
+            // 
+            lbl_username.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lbl_username.AutoSize = true;
+            lbl_username.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_username.Location = new Point(993, 44);
+            lbl_username.Name = "lbl_username";
+            lbl_username.Size = new Size(74, 28);
+            lbl_username.TabIndex = 18;
+            lbl_username.Text = "Admin";
+            // 
             // btn_logout
             // 
             btn_logout.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -201,13 +214,23 @@
             content.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             content.BackColor = SystemColors.AppWorkspace;
             content.BorderStyle = BorderStyle.FixedSingle;
+            content.Controls.Add(cmb_nama);
             content.Controls.Add(splitContainer1);
             content.Controls.Add(label_content);
             content.Location = new Point(347, 129);
             content.Name = "content";
-            content.Size = new Size(860, 491);
+            content.Size = new Size(860, 526);
             content.TabIndex = 17;
             content.Paint += content_Paint;
+            // 
+            // cmb_nama
+            // 
+            cmb_nama.FormattingEnabled = true;
+            cmb_nama.Location = new Point(17, 489);
+            cmb_nama.Name = "cmb_nama";
+            cmb_nama.Size = new Size(183, 28);
+            cmb_nama.TabIndex = 16;
+            cmb_nama.SelectedIndexChanged += cmb_nama_SelectedIndexChanged;
             // 
             // splitContainer1
             // 
@@ -235,9 +258,9 @@
             // 
             splitContainer1.Panel2.BackColor = Color.DarkOrange;
             splitContainer1.Panel2.Controls.Add(label2);
-            splitContainer1.Panel2.Controls.Add(textBox1);
+            splitContainer1.Panel2.Controls.Add(tb_pesan);
             splitContainer1.Panel2.Controls.Add(btn_submit);
-            splitContainer1.Panel2.Controls.Add(skbp);
+            splitContainer1.Panel2.Controls.Add(btn_skbp);
             splitContainer1.Panel2.Controls.Add(btn_tolak);
             splitContainer1.Size = new Size(832, 417);
             splitContainer1.SplitterDistance = 416;
@@ -345,6 +368,7 @@
             btn_spp.TabIndex = 16;
             btn_spp.Text = "Unduh SPP";
             btn_spp.UseVisualStyleBackColor = true;
+            btn_spp.Click += btn_spp_Click;
             // 
             // btn_ktm
             // 
@@ -356,6 +380,7 @@
             btn_ktm.TabIndex = 15;
             btn_ktm.Text = "Unduh KTM";
             btn_ktm.UseVisualStyleBackColor = true;
+            btn_ktm.Click += btn_ktm_Click;
             // 
             // tb_prodi
             // 
@@ -377,14 +402,14 @@
             label2.TabIndex = 17;
             label2.Text = "Pesan";
             // 
-            // textBox1
+            // tb_pesan
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Location = new Point(19, 71);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(376, 192);
-            textBox1.TabIndex = 22;
+            tb_pesan.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tb_pesan.Location = new Point(19, 71);
+            tb_pesan.Multiline = true;
+            tb_pesan.Name = "tb_pesan";
+            tb_pesan.Size = new Size(376, 192);
+            tb_pesan.TabIndex = 22;
             // 
             // btn_submit
             // 
@@ -396,17 +421,19 @@
             btn_submit.TabIndex = 19;
             btn_submit.Text = "Validasi";
             btn_submit.UseVisualStyleBackColor = true;
+            btn_submit.Click += btn_submit_Click;
             // 
-            // skbp
+            // btn_skbp
             // 
-            skbp.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            skbp.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            skbp.Location = new Point(234, 295);
-            skbp.Name = "skbp";
-            skbp.Size = new Size(150, 41);
-            skbp.TabIndex = 20;
-            skbp.Text = "skbp";
-            skbp.UseVisualStyleBackColor = true;
+            btn_skbp.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_skbp.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_skbp.Location = new Point(234, 295);
+            btn_skbp.Name = "btn_skbp";
+            btn_skbp.Size = new Size(150, 41);
+            btn_skbp.TabIndex = 20;
+            btn_skbp.Text = "skbp";
+            btn_skbp.UseVisualStyleBackColor = true;
+            btn_skbp.Click += btn_skbp_Click;
             // 
             // btn_tolak
             // 
@@ -418,27 +445,21 @@
             btn_tolak.TabIndex = 21;
             btn_tolak.Text = "Tolak";
             btn_tolak.UseVisualStyleBackColor = true;
+            btn_tolak.Click += btn_tolak_Click;
             // 
             // openFileDialog1
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
-            // lbl_username
+            // openFileDialog2
             // 
-            lbl_username.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lbl_username.AutoSize = true;
-            lbl_username.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_username.Location = new Point(993, 44);
-            lbl_username.Name = "lbl_username";
-            lbl_username.Size = new Size(74, 28);
-            lbl_username.TabIndex = 18;
-            lbl_username.Text = "Admin";
+            openFileDialog2.FileName = "openFileDialog2";
             // 
             // Validasi
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1209, 650);
+            ClientSize = new Size(1209, 685);
             Controls.Add(siderbar);
             Controls.Add(header);
             Controls.Add(content);
@@ -446,6 +467,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Validasi";
             WindowState = FormWindowState.Maximized;
+            Load += Validasi_Load;
             siderbar.ResumeLayout(false);
             navbar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)logo).EndInit();
@@ -484,7 +506,7 @@
         private TextBox tb_email;
         private TextBox tb_nama;
         private Button btn_ktm;
-        private Button skbp;
+        private Button btn_skbp;
         private Button btn_submit;
         private Button btn_spp;
         private OpenFileDialog openFileDialog1;
@@ -492,7 +514,9 @@
         private Button btn_logout;
         private SplitContainer splitContainer1;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox tb_pesan;
         private Label lbl_username;
+        private ComboBox cmb_nama;
+        private OpenFileDialog openFileDialog2;
     }
 }
